@@ -1,6 +1,6 @@
 ---
 name: paper-pipeline
-description: 实证经济学论文全流程辅助。当用户提出写新论文、重新想选题、论文卡在下一步、成稿要检查、准备投稿、收到审稿意见时使用。核心纪律：贡献句先行、占用检索过滤、门控推进（识别不过关不写作）、引用零凭记忆、诚实交付（不 p-hack，结果不理想时报告"诚实的零"）。默认目标期刊 SSCI 2–4 区瀑布，状态档案在 ~/Desktop/SSCI/。另附野心标尺（altitude/depth/range 落地版）：目标级指令、质疑交付物、阶段开工四问、可执行外部裁判、做空者内审、季度能力重探。 | An evidence-disciplined pipeline skill for empirical economics papers: routes each stage (topic selection → literature → identification → data → estimation → writing → journal selection) to the right specialized skill, enforces ten hard-won rules (fetch-before-cite, sample reconciliation, process-not-event treatment timing, randomization inference with few treated clusters, and more), and carries an ambition ladder distilled from Rieseberg (2025): outcome-level instructions, question-the-deliverable, stage-kickoff four questions, executable outside judges, short-seller internal review, quarterly capability re-probe.
+description: 实证经济学论文全流程辅助。当用户提出写新论文、重新想选题、论文卡在下一步、成稿要检查、准备投稿、收到审稿意见时使用。核心纪律：贡献句先行、占用检索过滤、门控推进（识别不过关不写作）、引用零凭记忆、诚实交付（不 p-hack，结果不理想时报告"诚实的零"）。默认目标期刊 SSCI 2–4 区瀑布，状态档案在 ~/Desktop/SSCI/。另附野心标尺（altitude/depth/range 落地版）：目标级指令、质疑交付物、阶段开工四问、可执行外部裁判、做空者内审、季度能力重探；aer-* 阶段 skill 与 humanizer 为硬依赖（§1）。 | An evidence-disciplined pipeline skill for empirical economics papers: routes each stage (topic selection → literature → identification → data → estimation → writing → journal selection) to the right specialized skill, enforces ten hard-won rules (fetch-before-cite, sample reconciliation, process-not-event treatment timing, randomization inference with few treated clusters, and more), carries an ambition ladder distilled from Rieseberg (2025): outcome-level instructions, question-the-deliverable, stage-kickoff four questions, executable outside judges, short-seller internal review, quarterly capability re-probe; the aer-* stage skills and humanizer are hard dependencies (§1).
 ---
 
 # Paper Pipeline（实证论文全流程）
@@ -20,6 +20,8 @@ description: 实证经济学论文全流程辅助。当用户提出写新论文�
 4. 阶段开工先答四问（§4.3）：顶尖专家此刻会怎么做 / 最原始素材在哪 / 用什么专业工具 / 外部裁判是谁——答案写进该阶段开工说明，再动手。
 
 ## 1. 阶段路由表
+
+> **硬依赖声明（不可协商）**：路由表中的 `aer-*` 阶段 skill（topic-selection / literature / identification / paper-body / introduction / tables-figures / consistency / referee-sim / submission / rebuttal）与 `humanizer` 是本 pipeline 的**强制组件**，不是可选参考。**使用本 skill = 必须使用它们**：进入任一阶段前，先完整读入 `aer-skills/<阶段名>/SKILL.md`（本仓库内，单一维护源）再执行；发现定义缺失时**立即停下向用户报告**，禁止凭记忆即兴替代——保租房论文的调用史已证明这套技能是审计质量的来源，跳过即降级。
 
 | 用户信号 / 阶段 | 调用 | 过门条件（不过不推进） |
 |---|---|---|
@@ -68,6 +70,7 @@ description: 实证经济学论文全流程辅助。当用户提出写新论文�
 
 ## 5. 指针（细节只查不复制，保持单一维护源）
 
+- aer-* 与 humanizer 的定义：`aer-skills/`（本仓库内，随 git 持久化；恢复状态见其 README）
 - 论文状态与投稿瀑布：`~/Desktop/SSCI/05_论文_投稿追踪.md`（每次投稿动作当天回写）
 - 期刊池：`~/Desktop/SSCI/02`（免费 C 档）、`03`（letters）、`06`（环境/交通口）；避雷 `04`
 - 数据通道实测：记忆 `reference-data-access-inventory`（QuotSoft / ERA5+POWER / 东财批量 / Wind 事件库 / Crossref）

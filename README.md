@@ -58,8 +58,15 @@ Copy the folder into your agent's skills directory (for ZCode: `~/.zcode/skills/
 ## Files / 文件
 
 ```
-SKILL.md   the skill (routing table, ten rules, ambition ladder, user preference card, pointers)
+SKILL.md        the skill (routing table, ten rules, ambition ladder, user preference card, pointers)
+aer-skills/     hard-dependency stage skills (aer-* × 11 + humanizer) — a stage must load its skill definition before running
 ```
+
+## Hard dependency / 硬依赖
+
+The routed stage skills (`aer-*` × 11) and `humanizer` are **mandatory components**, not optional references: using this pipeline means loading each stage's skill definition from `aer-skills/` before executing it. If a definition is missing, stop and tell the user — never improvise from memory.
+
+路由到的各阶段 skill（aer-* × 11）与 humanizer 是强制组件：使用本 pipeline 就必须先读入 `aer-skills/` 里对应阶段的定义再执行；定义缺失时停下报告，禁止凭记忆即兴替代。
 
 ## Signature / 署名
 
