@@ -1,13 +1,14 @@
 # Paper Pipeline
 
 > A stage-routed, discipline-enforced pipeline skill for empirical economics papers — from topic selection to journal submission.
-> 实证经济学论文全流程辅助 skill：阶段自动路由 + 十条实战纪律。
+> 实证经济学论文全流程辅助 skill：阶段自动路由 + 十条实战纪律 + 野心标尺（Ambition Ladder）。
+> Plus an ambition ladder distilled from Felix Rieseberg's *How to Be More Ambitious* (2025): outcome-level instructions, question-the-deliverable, stage-kickoff four questions, executable outside judges, short-seller internal review, quarterly capability re-probe.
 
 ## What it does / 它做什么
 
-This skill makes an AI coding agent run the full lifecycle of an empirical paper **without the user having to say which step comes next**. It was distilled from a complete real-world run — topic selection, staggered-DID identification, 1.4M-row panel construction, full drafting, adversarial internal review, an external audit that caught two critical bugs, and journal selection — compressed into a routing table and ten general rules.
+This skill makes an AI coding agent run the full lifecycle of an empirical paper **without the user having to say which step comes next**. It was distilled from a complete real-world run — topic selection, staggered-DID identification, 1.4M-row panel construction, full drafting, adversarial internal review, an external audit that caught two critical bugs, and journal selection — compressed into a routing table, ten general rules, and an ambition ladder.
 
-这个 skill 让 AI 编程代理自动跑通实证论文的全生命周期，用户无需逐步指挥。它提炼自一次完整的实战：选题 → staggered DID 识别 → 139 万行面板构建 → 全文写作 → 对抗式内审 → 外部审计（揪出两个致命错误）→ 选刊尽调，最终压缩为一张路由表和十条一般性纪律。
+这个 skill 让 AI 编程代理自动跑通实证论文的全生命周期，用户无需逐步指挥。它提炼自一次完整的实战：选题 → staggered DID 识别 → 139 万行面板构建 → 全文写作 → 对抗式内审 → 外部审计（揪出两个致命错误）→ 选刊尽调，最终压缩为一张路由表、十条一般性纪律，外加一节野心标尺。
 
 ## The routing table / 路由表
 
@@ -37,16 +38,27 @@ This skill makes an AI coding agent run the full lifecycle of an empirical paper
 9. **Audit auditors** — welcome third-party review, but independently re-compute every claim before accepting it; auditors err too.
 10. **Samples follow source quality, never results** — treatment lists are never grown or shrunk to move a p-value; versioned folders, append-only.
 
+## The ambition ladder / 野心标尺（防"用得太平庸"）
+
+The ten rules guard against errors; the ladder guards against under-using the model. 十条纪律防错，野心标尺防平庸：模型能力每几周跳一档，去年判定的"不可能"今年可能就是一条命令。
+
+1. **Outcome-level instructions (altitude)** — instruct by the gate to pass ("clean pre-trends, placebo battery passing"), not the steps to run ("run this regression"). If you'd call a group meeting about it, delegate it at high altitude.
+2. **Question the deliverable** — before filling in the event-study plot, ask what exhibit best answers the identification question; run a better warning/presentation design in parallel before switching.
+3. **Stage-kickoff four questions** — what would a leading expert do now / where is the rawest material (feed the raw panel, let the model say what happened in it) / which professional instruments (pyfixest, RI, databases — not markdown tables) / who is the outside judge. Set unreasonably high goals and assert they are solvable.
+4. **Executable outside judges** — a second model reviewing the first is not an independent judge (errors correlate). Judges must be executable: synthetic data with known ground truth, held-out samples, re-computable scripts, pre-registered checklists. Referee-sim verdicts must attach to re-computable checks.
+5. **Short seller in the crew** — besides a friendly simulated referee, run an adversarial reviewer whose mission is to refute the result: have it *do what* a referee does (design the killing robustness check, hunt counterexamples), not *write like* one. Mechanism claims: reproduce from raw data first, then try to break them; ablate "new findings" to tell recall of known results from genuine derivation.
+6. **Quarterly capability re-probe** — keep a list of steps previously judged infeasible / not worth automating, and retry it at the start of each quarter. Capability expiry is faster than code expiry; the bottleneck is often disbelief, not impossibility.
+
 ## Install / 安装
 
-Copy the folder into your agent's skills directory (for ZCode: `~/.zcode/skills/paper-pipeline/`), or point the agent at this repository. The skill references a personal journal knowledge base (`~/Desktop/SSCI/`) — see SKILL.md §0 and §4; replace the pointers with your own or remove them.
+Copy the folder into your agent's skills directory (for ZCode: `~/.zcode/skills/paper-pipeline/`), or point the agent at this repository. The skill references a personal journal knowledge base (`~/Desktop/SSCI/`) — see SKILL.md §0 and §5; replace the pointers with your own or remove them.
 
 将文件夹复制到代理的技能目录即可。skill 引用了个人投稿知识库（路径见 SKILL.md），可替换为自有路径或删除相关指针。
 
 ## Files / 文件
 
 ```
-SKILL.md   the skill (routing table, ten rules, user preference card, pointers)
+SKILL.md   the skill (routing table, ten rules, ambition ladder, user preference card, pointers)
 ```
 
 ## Signature / 署名

@@ -1,6 +1,6 @@
 ---
 name: paper-pipeline
-description: 实证经济学论文全流程辅助。当用户提出写新论文、重新想选题、论文卡在下一步、成稿要检查、准备投稿、收到审稿意见时使用。核心纪律：贡献句先行、占用检索过滤、门控推进（识别不过关不写作）、引用零凭记忆、诚实交付（不 p-hack，结果不理想时报告"诚实的零"）。默认目标期刊 SSCI 2–4 区瀑布，状态档案在 ~/Desktop/SSCI/。 | An evidence-disciplined pipeline skill for empirical economics papers: routes each stage (topic selection → literature → identification → data → estimation → writing → journal selection) to the right specialized skill, and enforces ten hard-won rules (fetch-before-cite, sample reconciliation, process-not-event treatment timing, randomization inference with few treated clusters, and more).
+description: 实证经济学论文全流程辅助。当用户提出写新论文、重新想选题、论文卡在下一步、成稿要检查、准备投稿、收到审稿意见时使用。核心纪律：贡献句先行、占用检索过滤、门控推进（识别不过关不写作）、引用零凭记忆、诚实交付（不 p-hack，结果不理想时报告"诚实的零"）。默认目标期刊 SSCI 2–4 区瀑布，状态档案在 ~/Desktop/SSCI/。另附野心标尺（altitude/depth/range 落地版）：目标级指令、质疑交付物、阶段开工四问、可执行外部裁判、做空者内审、季度能力重探。 | An evidence-disciplined pipeline skill for empirical economics papers: routes each stage (topic selection → literature → identification → data → estimation → writing → journal selection) to the right specialized skill, enforces ten hard-won rules (fetch-before-cite, sample reconciliation, process-not-event treatment timing, randomization inference with few treated clusters, and more), and carries an ambition ladder distilled from Rieseberg (2025): outcome-level instructions, question-the-deliverable, stage-kickoff four questions, executable outside judges, short-seller internal review, quarterly capability re-probe.
 ---
 
 # Paper Pipeline（实证论文全流程）
@@ -10,12 +10,14 @@ description: 实证经济学论文全流程辅助。当用户提出写新论文�
 给写实证经济学论文（政策评估 / staggered DID 为主）的用户做全流程辅助。
 本 skill 的第一职责是**路由**：按阶段自动调对下一个 skill，不需要用户提醒。
 第二职责是**拦错**：十条纪律来自真实踩坑，违反任何一条时主动叫停。
+第三职责是**拔高**：模型能力每几周跳一档，别用去年的用法对今年的模型（§4 野心标尺）。
 
 ## 0. 开工第一步（每次必做）
 
 1. 读 `~/Desktop/SSCI/05_论文_投稿追踪.md` 同步所有论文最新状态；
 2. 读相关项目记忆（数据通道清单见记忆 `reference-data-access-inventory`）;
-3. 需要期刊信息时读 `~/Desktop/SSCI/02`/`03`/`06`，**引用前先读 05 取最新状态**。
+3. 需要期刊信息时读 `~/Desktop/SSCI/02`/`03`/`06`，**引用前先读 05 取最新状态**；
+4. 阶段开工先答四问（§4.3）：顶尖专家此刻会怎么做 / 最原始素材在哪 / 用什么专业工具 / 外部裁判是谁——答案写进该阶段开工说明，再动手。
 
 ## 1. 阶段路由表
 
@@ -28,7 +30,7 @@ description: 实证经济学论文全流程辅助。当用户提出写新论文�
 | 实证 | pyfixest（**API 先用合成数据验证，再上真数据**） | 先行期（用对来源）+ 安慰剂组 + 量级合理性（均值占比）三关齐过 |
 | 写作 | `aer-paper-body` → `aer-introduction` → `humanizer`（两轮） | 图表过 `aer-tables-figures` 规范（图注下置、灰度可读、图内禁自带标题） |
 | 成稿 | `aer-consistency` + PDF 编译 + 机械体检脚本 | 引用双向匹配 / 双盲匿名（含源文件注释）/ PDF 0 error 且读完全部 warning |
-| 内审 | `aer-referee-sim` | verdict ≥ major R&R；报告不软化；修改清单分"必改/建议/扩写/等 R&R"四级给用户勾选 |
+| 内审 | `aer-referee-sim`（先过做空研究员，§4.5） | verdict ≥ major R&R 且逐条挂可复算检验（§4.4）；报告不软化；修改清单分"必改/建议/扩写/等 R&R"四级给用户勾选 |
 | 选刊投稿 | SSCI/06 期刊池 + `aer-submission` | 三套瀑布方案（学术口/冲高/速度）带推荐序给用户拍板；投稿动作当天回写 05 |
 | 收到审稿意见 | `aer-rebuttal` | **先改稿、后写信**；逐条独立复算意见里的事实性指控（外部审计方也会出错） |
 
@@ -53,7 +55,18 @@ description: 实证经济学论文全流程辅助。当用户提出写新论文�
 - 修改分级：必改 / 建议 / 扩写 / 等 R&R 四级清单供勾选；深水区（需外部数据的稳健性）主动留到教授/审稿人意见后。
 - 交付语言：中文交流、术语标英文；汇报先结论后细节；版本文件夹只增不删。
 
-## 4. 指针（细节只查不复制，保持单一维护源）
+## 4. 野心标尺（Ambition Ladder）
+
+> 提炼自 Rieseberg《How to Be More Ambitious》(2025)。与十条纪律互补：**纪律防错，野心防平庸**——模型能力每几周跳一档，去年判定的"不可能"今年可能就是一条命令。
+
+1. **目标级指令（altitude）**。指令写给要过的门（"先行期干净、安慰剂齐过、量级说得通"），不写给步骤（"跑这个回归"）。判据：**你本来会为它开组会的事，就高高度交给模型自主推进**；不会开组会的（图注措辞、配色），低高度省 token。
+2. **质疑交付物本身**。别急着填事件研究图——先让模型回答："回答这个识别问题，最好的展示物是什么？"更好的预警/呈现设计与旧做法**并行一段时间**、验证后再切换，不一把梭换。
+3. **阶段开工四问（stage-kickoff four questions）**。①顶尖专家此刻会怎么做？②最原始素材在哪——直接给原始面板，让模型自己说"数据里发生了什么"，不喂中间产物；③用什么专业工具（pyfixest / RI / 数据库，不是 markdown 表格）？④外部裁判是谁？目标可以定得不可理喻地高，并明说"这可解"（如"原始数据到终稿图表零手工步骤"），让它放手攻。
+4. **裁判锚定可执行物（outside judge）**。再叫一个模型来 review **不算独立裁判**——模型间错误相关，可能一起错。裁判只认：合成数据（ground truth 已知）、held-out 样本、可复算脚本、预注册清单。referee-sim 的 verdict 必须逐条挂到可复算的检验上，"感觉不稳"不构成意见。
+5. **做空者进组（assemble the crew）**。内审除善意审稿人外，加一个以推翻结论为使命的"做空研究员"：让它**做审稿人做的事**（设计致命稳健性检验、搜反例、算效应上界），不是**写审稿人的话**。机制假设同样处理："我们相信效应来自 X——先用原始数据复现它，再尝试推翻它"；声称的新发现先消融，区分"背出了已知结果"与"真推演出了新结果"。
+6. **季度能力重探（self-efficacy）**。上季度判定"做不到 / 不值得自动化"的环节（全自动占用检索、整篇论文复现、跨库清洗）列成清单，每季度初重试一遍，与分区表年度复核同节奏。瓶颈常是"不相信可能"，不是"不可能"。
+
+## 5. 指针（细节只查不复制，保持单一维护源）
 
 - 论文状态与投稿瀑布：`~/Desktop/SSCI/05_论文_投稿追踪.md`（每次投稿动作当天回写）
 - 期刊池：`~/Desktop/SSCI/02`（免费 C 档）、`03`（letters）、`06`（环境/交通口）；避雷 `04`
